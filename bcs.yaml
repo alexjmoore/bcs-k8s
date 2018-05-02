@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bcs-replica
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bcs-replica
+  template:
+    metadata:
+      labels:
+        app: bcs-replica
+    spec:
+      containers:
+      - name: bcs-replica
+        image: alexmoore/bcs:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env:
+        - name: MY_NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bcs-replica
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: bcs-replica

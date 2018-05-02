@@ -167,7 +167,7 @@ And you can track changes to the deployment with the follow:
 ```
 kubectl rollout history deployment/bcs-replica
 ```
-Also includes in this repo is the [azure-vote.yaml](azure-vote.yaml) this is a manifest as specified in the [Azure AKS Walkthrough](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) and provides a two tier web application with REDIS backend that can also be deployed for something a bit more interesting to explore.  Again ensuring the file is available in the Cloud Shell you can deploy with 
+Also included in this repo is the [azure-vote.yaml](azure-vote.yaml) this is a manifest as specified in the [Azure AKS Walkthrough](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) and provides a two tier web application with REDIS backend that can also be deployed for something a bit more interesting to explore.  Again ensuring the file is available in the Cloud Shell you can deploy with 
 ```
 kubectl apply -f azure-vote.yaml --record
 ```
